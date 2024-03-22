@@ -18,7 +18,7 @@ $W=P\left(n_i \rightarrow n_j\right)=\frac{p\left(E_{n_j}\right)}{p\left(E_{n_i}
 And after taking into account the probability of moving to a lower energy state due to the system's tendency to reach its ground state. The transition conditions are compute by generating a random number and the following test:
 
 *    $r: random.uniform()<0.5$: Downward transition
-*    if $r>0.5$ $and$ $r': random.uniform()<W$ : Upward transition
+*    if $r>0.5$ $and$ $r': random.uniform() < W$ : Upward transition
 
 The code has the function:
 

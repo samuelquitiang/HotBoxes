@@ -1,17 +1,19 @@
-### Monte Carlo Simulation of Particle Distribution in Potential Wells with Thermal Reservoir
+*Last edition by Samuel Quitian on 23/03/2024*
+
+# Monte Carlo Simulation of Particle Distribution in Potential Wells with Thermal Reservoir
 In this work, we study the scenario of an array of infinite potential wells in contact with a thermal reservoir, each containing one electron. It is well known that in certain physical systems, the likelihood of being in a particular state is determined by the Boltzmann distribution, which is a function of the energy and temperature.
 
 
-# $P(n_i) = \frac{e^{-E_i/k_b T}}{Z}$
+$P(n_i) = \frac{e^{-E_i/k_b T}}{Z}$
 
-The objective of this project is to delve into the distribution of particles within the energy levels of the system upon reaching equilibrium. Additionally, it aims to explore how the system's behavior varies concerning different parameters, such as the length of the wells. To achieve this, we will use the Monte Carlo approach with the Metropolis algorithm in which we make the system evolve according to a certain probabilities. We aim to explore how temperature affects the final distribution of particles on energy levels, the stability of the system, and the convergence of simulation results.
+The objective of this project is to explore the distribution of particles within the energy levels of the system upon reaching equilibrium. Additionally, it aims to unveil how the system's behavior varies concerning different parameters, such as the length of the wells. To achieve this, we will use the Monte Carlo approach with the Metropolis algorithm in which we make the system evolve according to a certain probabilities. We aim to show how temperature affects the final distribution of particles on energy levels, the stability of the system, and the convergence of simulation results.
 
 ![Potenciales](https://github.com/samuelquitiang/HotBoxes/assets/53834570/66a53846-9845-46b1-90f9-aaeea9430fb4)
 
 In this case, the initial state of the system can be expressed as:
 $n_0 = (4, 3, 2, ..., 4)$
 
-The code will make evolve the system from a state $n_i$ to a state $n_j$ by doing a "random walk" in which the probability of accept a transition to a higher level of energy is given by:
+The code will make evolve the system from a state $n_i$ to a state $n_j$ by doing a "random walk" in which the probability of doing a transition to a higher level of energy is given by:
 
 $W=P\left(n_i \rightarrow n_j\right)=\frac{p\left(E_{n_j}\right)}{p\left(E_{n_i}\right)}=\frac{e^{-\beta E_{n_j}} / Z}{e^{-\beta E_{n_i} / Z}}=e^{\beta\left(E_{n_j}-E_{n_i}\right)}$
 
@@ -19,6 +21,8 @@ And after taking into account the probability of moving to a lower energy state 
 
 *    $r: random.uniform()<0.5$: Downward transition
 *    if $r>0.5$ $and$ $r': random.uniform() < W$ : Upward transition
+
+
 
 The code has the function:
 
@@ -35,7 +39,17 @@ Potential_reservoir(Ta, N, l, nmax, plot=False, live=False)
         live (bool): Whether to generate an animation of the distribution of energy states. Default: False
 
     Returns:
-        Tuple: A tuple containing arrays or integers representing the average energy and heat capacity. The format of the tuple varies depending on the type of the Ta parameter: if Ta is an integer, both average energy and heat capacity are single values; if Ta is a list, each element of the tuple corresponds to an array of values, and similarly for the l parameter.
+        Tuple: Array or integer representing the average energy. The format of the tuple varies depending on the type of the Ta parameter: if Ta is an integer, both average energy and heat capacity are single values; if Ta is a list, each element of the tuple corresponds to an array of values, and similarly for the l parameter.
     
 
 This is the main function for the user, from it the user can obtain how is the behaviour of the system energy respect to the different parameters.
+
+
+#Heat capacity problem
+The heat capacity of a system can be computed from its energy behaviour when it is in thermal equilibrium as:
+
+$C_v=\frac{\left\langle E^2\right\rangle - \langle E\rangle^2}{k_b T^2}$.
+
+Where $k_b$ is the Boltzman constant. 
+
+In this project we try to get the heat capacity from the evolution of the system but the results were not convincing and also vary a lot in each run due to the Markovian-stochasticity of the problem, this could be due to a bad calculation of the heat capacity or maybe by taking into account more potential wells this heat capacity stabilizes.

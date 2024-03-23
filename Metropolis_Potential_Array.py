@@ -89,7 +89,7 @@ def Pot_energy(T, N, l, nmax, plot, live):
 
         Ee = 0  # Initialize energy in epoch t
 
-        if live and t<100:
+        if live and t<100: # The t limit can be change to observe the corresponding distribution at equilibrium, for a higher T this t must be greater
           # Generate live animation if enabled
             plt.clf()
             plt.hist(n, bins=15, range=(1,15), label='t = %s'%(t))

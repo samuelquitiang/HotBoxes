@@ -45,7 +45,7 @@ Potential_reservoir(Ta, N, l, nmax, plot=False, live=False)
 This is the main function for the user, from it the user can obtain how is the behaviour of the system energy respect to the different parameters.
 
 
-#Heat capacity problem
+# Heat capacity problem
 The heat capacity of a system can be computed from its energy behaviour when it is in thermal equilibrium as:
 
 $C_v=\frac{\left\langle E^2\right\rangle - \langle E\rangle^2}{k_b T^2}$.

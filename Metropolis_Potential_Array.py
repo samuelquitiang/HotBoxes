@@ -85,7 +85,6 @@ def Pot_energy(T, N, l, nmax, plot, live):
 
     # Main simulation loop
     for j in range(5000):
-        t += 1  # Increase epoch
 
         Ee = 0  # Initialize energy in epoch t
 
@@ -150,7 +149,18 @@ def Pot_energy(T, N, l, nmax, plot, live):
             E2 = (sum(e2**2)+E2)/(len(e2)+1)            #Calculate the cuadratic average energy
             if tc == 0:
                 tc = t
+        # Store energy for epoch t
+        E.append(Ee)
 
+        t += 1  # Increase epoch
+        
+        # Calculate cumulative energy
+        Ecum = sum(E)/t
+        EC.append(Ecum)
+        
+        # Append epoch to array
+        y.append(t)
+        
         # Append epoch to array
         y.append(t)
 
@@ -274,6 +284,7 @@ fig.suptitle('Average energy respect to the temperature and the well size')
 plt.subplot(1, 2, 1)
 plt.plot(Tf, E_avg, label='l= %s nm'%(l))
 plt.plot(Tf, line(Tf,*result ), label='Fit')
+plt.title('Total energy vs Temperature')
 plt.text(0.7,0.6, "R^2 = %.3f" %(Rt),  transform=plt.gca().transAxes, fontsize=10, verticalalignment='bottom', bbox=dict(facecolor='white', alpha=0.5))
 
 plt.ylabel('Total average energy (eV)')
@@ -283,6 +294,7 @@ plt.legend()
 plt.subplot(1, 2, 2)
 plt.plot(L, E_avgl, label='T = 400')
 plt.plot(L,e(L,*resull), label='Fit')
+plt.title('Total energy vs Well size')
 plt.text(0.7,0.6, "R^2 = %.3f" %(Rl),  transform=plt.gca().transAxes, fontsize=10, verticalalignment='bottom', bbox=dict(facecolor='white', alpha=0.5))
 
 plt.ylabel('Total average energy (eV)')

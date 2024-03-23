@@ -243,7 +243,7 @@ def Potential_reservoir(Ta, N, l, nmax, plot=False, live=False):
 
     # Otherwise, perform simulation with single temperature and length
     else:
-        E_avg, Cv = Pot_energy(Ta, N, l, nmax, plot)
+        E_avg, Cv = Pot_energy(Ta, N, l, nmax, plot, live)
         return E_avg
 
 E_avg = Potential_reservoir(Tf, N, l, nmax, plot = True )

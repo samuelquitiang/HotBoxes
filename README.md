@@ -53,3 +53,24 @@ $C_v=\frac{\left\langle E^2\right\rangle - \langle E\rangle^2}{k_b T^2}$.
 Where $k_b$ is the Boltzman constant. 
 
 In this project we try to get the heat capacity from the evolution of the system but the results were not convincing and also vary a lot in each run due to the Markovian-stochasticity of the problem, this could be due to a bad calculation of the heat capacity or maybe by taking into account more potential wells this heat capacity stabilizes.
+
+# Results - Graphics
+
+![T100](https://github.com/samuelquitiang/HotBoxes/assets/53834570/f226dc94-0798-41c8-9edc-067b5c17841d)
+
+This figure shows the behaviour of the system when the reservoir temperature is at $100 K$. At the beginning, the system has high energy, but after several iterations, the energy starts to decay, and eventually, it oscillates around a medium energy value. This oscillation shows minimal variation around the average value for this temperature. 
+
+![T1800](https://github.com/samuelquitiang/HotBoxes/assets/53834570/350c0258-28c3-4e14-84fe-1ceddcd671d8)
+
+The figure shows the system's behaviour when it is in contact with a thermal bath at a temperature of $2500K$. Similar to the previous case, the system starts with high energy, decreases gradually, and oscillates around a certain energy value. However, in this case, the oscillation is more significant as compared to the ones observed when the initial temperature was $100K$.
+
+![Histogram](https://github.com/samuelquitiang/HotBoxes/assets/53834570/d1eef453-e8aa-4cf0-9dcd-fd57b03780ac)
+Upon reaching the equilibrium, the system the occupation state distribution follows the Maxwell-Boltzmann distribution,
+this distribution describes the probability of finding particles at various energy levels within the system, reflecting the thermal equilibrium achieved under the specified conditions. On this case, the higher energy levels are less likely to be occupied.
+
+![TvsE](https://github.com/samuelquitiang/HotBoxes/assets/53834570/6e2b25c4-15bd-4497-af06-921ccb22b78a)
+In this Figure is presented how the total energy of the system exhibits a linear increase with the temperature of the thermal reservoir, indicating a direct correlation between temperature and energy content. This observation follows the fundamental principle of thermodynamics, where higher temperatures lead to greater energy contributions within the system.
+
+![EvsL](https://github.com/samuelquitiang/HotBoxes/assets/53834570/864fa088-643f-41a5-92d5-89099d15a628)
+
+The relationship between the total energy and the length of the potential well, as the previous image, reveals an inverse exponential function. This trend suggests that narrower wells result in significantly higher energy compared to wider ones, implying a sensitivity of the system's energy state to variations in well dimensions.

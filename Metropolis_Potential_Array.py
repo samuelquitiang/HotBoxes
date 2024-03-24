@@ -128,9 +128,6 @@ def Pot_energy(T, N, l, nmax, plot, live):
             Ei = k*n[i]**2
             Ee += Ei
 
-        # Store energy for epoch t
-        E.append(Ee)
-
         # Calculate cumulative energy
         Ecum = sum(E)/t
         EC.append(Ecum)
@@ -149,6 +146,7 @@ def Pot_energy(T, N, l, nmax, plot, live):
             E2 = (sum(e2**2)+E2)/(len(e2)+1)            #Calculate the cuadratic average energy
             if tc == 0:
                 tc = t
+                
         # Store energy for epoch t
         E.append(Ee)
 
